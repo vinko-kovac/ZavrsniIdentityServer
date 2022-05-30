@@ -1,21 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace IdentityServerAspNetIdentity.Pages.Account.Registration
+namespace WebApp
 {
-    public class InputModel
+    public class User
     {
-
         [Required]
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }
         [Required]
-        public string GivenName { get; set; }
+        public string FirstName { get; set; }
         [Required]
-        public string FamilyName { get; set; }
+        public string LastName { get; set; }
         [Required]
         public string Email { get; set; }
-        public string ReturnUrl { get; set; }
         public string Button { get; set; }
     }
 }
