@@ -3,6 +3,7 @@ using System.Net;
 using System.Security.Claims;
 using IdentityModel;
 using IdentityServerAspNetIdentity.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
