@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
@@ -40,6 +42,14 @@ namespace WebApp.Pages
                     var rep = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
 
                     client.DefaultRequestHeaders.Add("accept", "application/json");
+
+                    var cookies = HttpContext.Request.Cookies;
+                    var cookie = string.Empty;
+                    foreach (var key in cookies.Keys)
+                    {
+                        cookie += key + "=" + cookies[key] + ";";
+                    }
+                    client.DefaultRequestHeaders.Add("cookie", cookie);
 
                     var response = await client.PostAsync("https://localhost:5001/Register/Create", rep);
 

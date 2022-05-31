@@ -64,6 +64,7 @@ internal static class HostingExtensions
         app.UseStaticFiles();
         app.UseRouting();
         app.UseIdentityServer();
+        app.UseAuthentication();
         app.UseAuthorization();
         
         app.MapRazorPages()
@@ -71,7 +72,7 @@ internal static class HostingExtensions
 
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapDefaultControllerRoute();
+            endpoints.MapDefaultControllerRoute().RequireAuthorization();
         });
             
 
